@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Invoice & GST Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header no-print">
+    <div>
+      <p class="tag">Free GST Billing Tool</p>
+      <h1>Smart Invoice & GST Calculator</h1>
+      <p>
+        Create a GST invoice with item details, discount, SGST, CGST,
+        total amount, balance, and print-ready bill format.
+      </p>
+    </div>
+
+    <a href="https://digitalheroesco.com" target="_blank" class="digital-btn">
+      Built for Digital Heroes
+    </a>
+  </header>
+
+  <main class="container">
+
+    <section class="form-card no-print">
+      <h2>Seller / Company Details</h2>
+
+      <div class="grid">
+        <div class="input-box">
+          <label>Company / Seller Name</label>
+          <input type="text" id="sellerName" value="Sritam Ghosh" />
+        </div>
+
+        <div class="input-box">
+          <label>Phone No.</label>
+          <input type="text" id="sellerPhone" placeholder="+91 7751038603" />
+        </div>
+
+        <div class="input-box">
+          <label>Email ID</label>
+          <input type="email" id="sellerEmail" value="sritamghosh50@gmail.com" />
+        </div>
+
+        <div class="input-box">
+          <label>GSTIN</label>
+          <input type="text" id="sellerGstin" placeholder="Enter GSTIN" />
+        </div>
+
+        <div class="input-box">
+          <label>State</label>
+          <input type="text" id="sellerState" value="Odisha" />
+        </div>
+
+        <div class="input-box">
+          <label>Company Address</label>
+          <input type="text" id="sellerAddress" placeholder="Enter company address" />
+        </div>
+      </div>
+    </section>
+
+    <section class="form-card no-print">
+      <h2>Customer Details</h2>
+
+      <div class="grid">
+        <div class="input-box">
+          <label>Customer Name</label>
+          <input type="text" id="customerName" placeholder="Enter customer name" />
+        </div>
+
+        <div class="input-box">
+          <label>Customer Phone</label>
+          <input type="text" id="customerPhone" placeholder="Enter phone number" />
+        </div>
+
+        <div class="input-box">
+          <label>Customer Email</label>
+          <input type="email" id="customerEmail" placeholder="customer@email.com" />
+        </div>
+
+        <div class="input-box">
+          <label>Customer GSTIN</label>
+          <input type="text" id="customerGstin" placeholder="Enter customer GSTIN" />
+        </div>
+
+        <div class="input-box">
+          <label>Customer State</label>
+          <input type="text" id="customerState" placeholder="Enter state" />
+        </div>
+
+        <div class="input-box">
+          <label>Billing Address</label>
+          <input type="text" id="billingAddress" placeholder="Enter billing address" />
+        </div>
+
+        <div class="input-box full">
+          <label>Shipping Address</label>
+          <input type="text" id="shippingAddress" placeholder="Enter shipping address" />
+        </div>
+      </div>
+    </section>
+
+    <section class="form-card no-print">
+      <h2>Invoice Details</h2>
+
+      <div class="grid">
+        <div class="input-box">
+          <label>Invoice No.</label>
+          <input type="text" id="invoiceNo" value="ABC-2022-001" />
+        </div>
+
+        <div class="input-box">
+          <label>Invoice Date</label>
+          <input type="date" id="invoiceDate" />
+        </div>
+
+        <div class="input-box">
+          <label>Received Amount</label>
+          <input type="number" id="receivedAmountInput" value="0" min="0" />
+        </div>
+
+        <div class="input-box">
+          <label>Terms & Conditions</label>
+          <input
+            type="text"
+            id="terms"
+            value="Goods once sold will not be taken back."
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="form-card no-print">
+      <div class="section-heading">
+        <h2>Invoice Items</h2>
+        <button class="primary-btn" onclick="addItem()">+ Add Item</button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="input-table">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Quantity</th>
+              <th>Unit</th>
+              <th>Price / Unit</th>
+              <th>Discount</th>
+              <th>GST %</th>
+              <th>Amount</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+
+          <tbody id="itemsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="summary-card no-print">
+      <h2>Calculation Summary</h2>
+
+      <div class="summary-row">
+        <span>Sub Total</span>
+        <strong id="screenSubTotal">₹0.00</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Total Discount</span>
+        <strong id="screenDiscount">₹0.00</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Total GST</span>
+        <strong id="screenGst">₹0.00</strong>
+      </div>
+
+      <div class="summary-row total-row">
+        <span>Final Total</span>
+        <strong id="screenGrandTotal">₹0.00</strong>
+      </div>
+
+      <div class="action-buttons">
+        <button class="primary-btn" onclick="printInvoice()">Print GST Bill</button>
+        <button class="secondary-btn" onclick="resetInvoice()">Reset</button>
+      </div>
+    </section>
+
+    <section class="preview-card" id="invoicePreview">
+      <div class="bill-paper">
+
+        <div class="bill-top">
+          <div class="seller-box">
+            <p><b>Company/Seller Name:</b></p>
+            <p id="billSellerName">Sritam Ghosh</p>
+            <p id="billSellerAddress">Address:</p>
+
+            <br />
+
+            <p>Phone No.: <span id="billSellerPhone"></span></p>
+            <p>Email ID: <span id="billSellerEmail">sritamghosh50@gmail.com</span></p>
+            <p>GSTIN: <span id="billSellerGstin"></span></p>
+            <p>State: <span id="billSellerState">Odisha</span></p>
+          </div>
+
+          <div class="logo-box">
+            LOGO
+          </div>
+        </div>
+
+        <h2 class="tax-title">Tax Invoice</h2>
+
+        <div class="address-row">
+          <div>
+            <p><b>Bill To:</b></p>
+            <p>Name: <span id="billCustomerName"></span></p>
+            <p>Address: <span id="billBillingAddress"></span></p>
+
+            <br />
+
+            <p>Contact No.: <span id="billCustomerPhone"></span></p>
+            <p>GSTIN No.: <span id="billCustomerGstin"></span></p>
+            <p>State: <span id="billCustomerState"></span></p>
+          </div>
+
+          <div>
+            <p><b>Shipping To:</b></p>
+            <p id="billShippingAddress"></p>
+
+            <br />
+
+            <p><b>Invoice No.:</b> <span id="billInvoiceNo">ABC-2022-001</span></p>
+            <p><b>Date:</b> <span id="billInvoiceDate"></span></p>
+          </div>
+        </div>
+
+        <table class="bill-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Item name</th>
+              <th>Quantity</th>
+              <th>Unit</th>
+              <th>Price/Unit</th>
+              <th>Discount</th>
+              <th>GST</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+
+          <tbody id="billItemsBody"></tbody>
+
+          <tfoot>
+            <tr>
+              <td colspan="2"><b>Total</b></td>
+              <td id="billTotalQty"><b>0</b></td>
+              <td></td>
+              <td></td>
+              <td id="billTotalDiscount"><b>0.00</b></td>
+              <td id="billTotalGst"><b>0.00</b></td>
+              <td id="billGrandTotal"><b>0.00</b></td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="bill-bottom">
+          <div class="amount-words">
+            <p><b>Amount in words:</b></p>
+            <p id="amountWords">Zero Rupees Only</p>
+
+            <br /><br />
+
+            <p><b>Terms & Conditions</b></p>
+            <p id="billTerms">Goods once sold will not be taken back.</p>
+          </div>
+
+          <div class="total-box">
+            <p class="sub-total-line">
+              <span>Sub Total:</span>
+              <b id="billSubTotal">₹0.00</b>
+            </p>
+
+            <p>
+              <span>Discount:</span>
+              <b id="billDiscount">₹0.00</b>
+            </p>
+
+            <p>
+              <span>SGST:</span>
+              <b id="billSgst">₹0.00</b>
+            </p>
+
+            <p>
+              <span>CGST:</span>
+              <b id="billCgst">₹0.00</b>
+            </p>
+
+            <h3>
+              <span>Total</span>
+              <b id="billFinalTotal">₹0.00</b>
+            </h3>
+
+            <p>
+              <span>Received</span>
+              <b id="billReceived">₹0.00</b>
+            </p>
+
+            <p>
+              <span>Balance</span>
+              <b id="billBalance">₹0.00</b>
+            </p>
+          </div>
+        </div>
+
+        <div class="seal-sign">
+          Company seal and Sign
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer no-print">
+    <p>
+      Created by <b>Sritam Ghosh</b> |
+      <a href="mailto:sritamghosh50@gmail.com">sritamghosh50@gmail.com</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
