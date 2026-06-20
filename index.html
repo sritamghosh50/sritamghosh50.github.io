@@ -3,63 +3,338 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sritam Ghosh | Portfolio</title>
+
+  <title>Sritam Ghosh | Java Developer Portfolio</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Sritam Ghosh, Java Developer and Software Developer skilled in Java, HTML, CSS, JavaScript, MySQL, REST APIs, Git, GitHub and frontend development."
+  />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header>
-    <h1>Sritam Ghosh</h1>
-    <p>Java Developer | Frontend Developer | Software Developer</p>
-    <p>Email: sritamghosh50@gmail.com</p>
+  <!-- ================= NAVBAR ================= -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="#home" class="logo">Sritam<span>Ghosh</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </nav>
   </header>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I am a B.Tech student with knowledge of Java, HTML, CSS, JavaScript,
-      MySQL, Git, GitHub, and web development. I enjoy building practical
-      and useful software tools.
-    </p>
-  </section>
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="badge">Java Developer | Software Developer</p>
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <p>
-      Java, HTML, CSS, JavaScript, MySQL, Git, GitHub, VS Code, REST APIs
-    </p>
-  </section>
+      <h1>Hi, I am <span>Sritam Ghosh</span></h1>
 
-  <section class="projects">
-    <h2>Projects</h2>
+      <h2>
+        I build practical web tools, clean interfaces, and Java-based software solutions.
+      </h2>
 
-    <div class="project-card">
-      <h3>Smart Invoice & GST Calculator</h3>
-
-      <p>
-        A free GST billing tool that creates print-ready tax invoices with
-        item details, discount, SGST, CGST, total amount, received amount,
-        balance, and amount in words.
+      <p class="hero-text">
+        B.Tech Electronics & Telecommunication Engineering student at VSSUT, Burla.
+        Skilled in Java, HTML, CSS, JavaScript, MySQL, Git, GitHub, REST APIs,
+        and building useful real-world projects.
       </p>
 
-      <p><b>Tech Used:</b> HTML, CSS, JavaScript</p>
-
-      <div class="buttons">
-        <a href="https://smart-invoice-gst-calculator.vercel.app/" target="_blank">
-          Live Demo
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="Sritam_Ghosh_Java_Developer_Resume.pdf" class="btn secondary" target="_blank">
+          Download Resume
         </a>
+      </div>
 
-        <a href="https://github.com/sritamghosh50/smart-invoice-gst-calculator" target="_blank">
-          GitHub Code
-        </a>
+      <div class="social-links">
+        <a href="mailto:sritamghosh50@gmail.com">Email</a>
+        <a href="https://github.com/sritamghosh50" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
       </div>
     </div>
 
+    <div class="hero-card">
+      <h3>Current Focus</h3>
+      <p>Java Development</p>
+      <p>Frontend Development</p>
+      <p>REST API Concepts</p>
+      <p>Real-world Web Tools</p>
+    </div>
   </section>
 
-  <footer>
-    <p>© 2026 Sritam Ghosh | sritamghosh50@gmail.com</p>
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about">
+    <div class="section-title">
+      <p>About Me</p>
+      <h2>Who I Am</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I am <b>Sritam Ghosh</b>, a B.Tech student in Electronics &
+          Telecommunication Engineering from <b>Veer Surendra Sai University of
+          Technology, Burla</b>. I am interested in software development and
+          web development, with strong focus on Java, frontend development,
+          database concepts, and real-world problem-solving.
+        </p>
+
+        <p>
+          I have worked on practical projects such as GST Invoice Calculator,
+          student management system, frontend landing pages, and documentation-based
+          API tasks. I enjoy creating useful tools that solve real problems.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <div>
+          <span>Name</span>
+          <strong>Sritam Ghosh</strong>
+        </div>
+
+        <div>
+          <span>Email</span>
+          <strong>sritamghosh50@gmail.com</strong>
+        </div>
+
+        <div>
+          <span>Location</span>
+          <strong>India</strong>
+        </div>
+
+        <div>
+          <span>Role</span>
+          <strong>Java Developer / Software Developer</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="section light" id="skills">
+    <div class="section-title">
+      <p>Technical Skills</p>
+      <h2>My Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <p>Java, JavaScript, HTML, CSS, SQL</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Core Java</h3>
+        <p>OOP, Exception Handling, Collections, JDBC, Basic Multithreading</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Frontend</h3>
+        <p>Responsive UI, Forms, DOM Manipulation, CSS Layouts, JavaScript Logic</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Database</h3>
+        <p>MySQL, SQL Queries, Joins, CRUD Operations</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Tools</h3>
+        <p>Git, GitHub, VS Code, Postman, Vercel</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Concepts</h3>
+        <p>REST APIs, Problem Solving, Debugging, Clean Code</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="section" id="experience">
+    <div class="section-title">
+      <p>Experience</p>
+      <h2>Internship & Training</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-card">
+        <h3>Intern — BranchX</h3>
+        <span>May 2025 – July 2025</span>
+        <p>
+          Worked on the Torus Digital / 10X Fi project, focusing on testing,
+          frontend development, UI improvements, bug fixing, and web page
+          development using HTML, CSS, JavaScript, and Java.
+        </p>
+      </div>
+
+      <div class="timeline-card">
+        <h3>Full Stack Java Training</h3>
+        <span>Naresh IT Technology, Hyderabad</span>
+        <p>
+          Learned Core Java, OOP concepts, JDBC, SQL, frontend basics,
+          backend fundamentals, and software development workflow.
+        </p>
+      </div>
+
+      <div class="timeline-card">
+        <h3>ADE, DRDO — Internship</h3>
+        <span>Bangalore</span>
+        <p>
+          Worked as an intern on antenna simulator related work and gained
+          exposure to technical systems and engineering problem-solving.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section class="section light" id="projects">
+    <div class="section-title">
+      <p>Projects</p>
+      <h2>Recent Work</h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Recent Project -->
+      <div class="project-card featured">
+        <div class="project-label">Recent Project</div>
+
+        <h3>Smart Invoice & GST Calculator</h3>
+
+        <p>
+          A free GST billing tool that creates print-ready tax invoices with
+          seller details, customer details, item details, discount, SGST, CGST,
+          total amount, received amount, balance, and amount in words.
+        </p>
+
+        <div class="tech-list">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Vercel</span>
+        </div>
+
+        <div class="project-buttons">
+          <a href="https://smart-invoice-gst-calculator.vercel.app/" target="_blank">
+            Live Demo
+          </a>
+
+          <a href="https://github.com/sritamghosh50/smart-invoice-gst-calculator" target="_blank">
+            GitHub Code
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Student Management System</h3>
+
+        <p>
+          A Java-based project for managing student records using OOP concepts,
+          CRUD operations, and structured programming logic.
+        </p>
+
+        <div class="tech-list">
+          <span>Java</span>
+          <span>OOP</span>
+          <span>CRUD</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>RADO Ride-Sharing Landing Page</h3>
+
+        <p>
+          Designed a responsive landing page with hero section, features section,
+          search UI, and clean frontend layout.
+        </p>
+
+        <div class="tech-list">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>AHB-to-APB Bridge RTL</h3>
+
+        <p>
+          Designed and implemented an AHB-to-APB Bridge using RTL concepts,
+          AMBA protocol understanding, and state-machine based logic.
+        </p>
+
+        <div class="tech-list">
+          <span>RTL</span>
+          <span>AMBA</span>
+          <span>Digital Design</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section class="section" id="education">
+    <div class="section-title">
+      <p>Education</p>
+      <h2>Academic Background</h2>
+    </div>
+
+    <div class="education-card">
+      <h3>B.Tech — Electronics & Telecommunication Engineering</h3>
+      <p>Veer Surendra Sai University of Technology, Burla</p>
+      <span>2022 – 2026 | CGPA: 7.60 / 10</span>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section contact" id="contact">
+    <div class="section-title">
+      <p>Contact</p>
+      <h2>Get In Touch</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p id="emailText">sritamghosh50@gmail.com</p>
+        <button onclick="copyEmail()">Copy Email</button>
+      </div>
+
+      <div class="contact-card">
+        <h3>GitHub</h3>
+        <p>github.com/sritamghosh50</p>
+        <a href="https://github.com/sritamghosh50" target="_blank">Open GitHub</a>
+      </div>
+
+      <div class="contact-card">
+        <h3>Resume</h3>
+        <p>Download my latest resume</p>
+        <a href="Sritam_Ghosh_Java_Developer_Resume.pdf" target="_blank">View Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Sritam Ghosh. All Rights Reserved.</p>
   </footer>
 
+  <button class="top-btn" id="topBtn">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
